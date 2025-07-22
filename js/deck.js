@@ -1,5 +1,4 @@
-
-class Deck {
+export class Deck {
     constructor(cardsConfig) {
         this.cards = [];
         this.discardPile = [];

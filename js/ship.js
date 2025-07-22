@@ -1,15 +1,12 @@
-
 // Classe de base pour tous les vaisseaux
-class Ship {
+export class Ship {
     constructor(shipData) {
         this.name = shipData.name;
         this.type = shipData.type;
 
         // Propriétés de base
         this.structureHealth = shipData.structureHealth;
-        this.engineeringPower = shipData.engineeringPower;
         this.assaultPower = shipData.assaultPower;
-        this.missile = shipData.missile;
         this.initiative = shipData.initiative;
         this.shield = 0; // Commence à 0
 
@@ -22,16 +19,6 @@ class Ship {
 
         // Spécial
         this.specialSkill = shipData.specialSkill;
-    }
-
-    // Factory method pour créer un vaisseau allié
-    static async createAllied(name) {
-        const response = await fetch(`data/${name.toLowerCase()}.json`);
-        if (!response.ok) {
-            throw new Error(`Impossible de charger le fichier du vaisseau : ${name}`);
-        }
-        const shipData = await response.json();
-        return new ShipAllied(shipData);
     }
 
     isAlive() {
@@ -63,21 +50,18 @@ class Ship {
         }
     }
 
+    canFireLaser() {
+        return this.compartments.energyBattery > 0;
+    }
+
+    canFireMissile() {
+        return this.compartments.missileBattery > 0;
+    }
+
     destroyShield(amount = 1) {
         this.shield -= amount;
         if (this.shield < 0) {
             this.shield = 0;
-        }
-    }
-
-    fireMissile(amount = 1) {
-        if (this.compartments.missileBattery > 0) {
-            this.missile -= amount;
-            if (this.missile < 0) {
-                this.missile = 0;
-            }
-        } else {
-            console.log("La batterie de missiles est détruite !");
         }
     }
 
@@ -86,8 +70,12 @@ class Ship {
         console.log(`Type: ${this.type}`);
         console.log(`Structure: ${this.structureHealth}`);
         console.log(`Boucliers: ${this.shield}`);
-        console.log(`Missiles: ${this.missile}`);
-        console.log(`Puissance d'ingénierie: ${this.engineeringPower}`);
+        if (this.missile !== undefined) {
+            console.log(`Missiles: ${this.missile}`);
+        }
+        if (this.engineeringPower !== undefined) {
+            console.log(`Puissance d'ingénierie: ${this.engineeringPower}`);
+        }
         console.log(`Puissance d'assaut: ${this.assaultPower}`);
         if (this.luck !== undefined) { // La chance n'existe que pour les alliés
             console.log(`Chance: ${this.luck}`);
@@ -95,15 +83,20 @@ class Ship {
         if (this.fusionCell !== undefined) { // Les piles à fusion n'existent que pour les alliés
             console.log(`Piles à fusion: ${this.fusionCell}`);
         }
+        if (this.reward !== undefined) { // La récompense n'existe que pour les ennemis
+            console.log(`Récompense:`, this.reward);
+        }
         console.log('Compartiments:', this.compartments);
         console.log('--------------------------');
     }
 }
 
 // Classe pour les vaisseaux alliés
-class ShipAllied extends Ship {
+export class ShipAllied extends Ship {
     constructor(shipData) {
         super(shipData); // Appelle le constructeur de la classe parente (Ship)
+        this.engineeringPower = shipData.engineeringPower;
+        this.missile = shipData.missile;
         this.luck = shipData.luck;
         this.fusionCell = 0; // Les alliés commencent avec 0 pile à fusion
     }
@@ -113,14 +106,25 @@ class ShipAllied extends Ship {
         console.log(`${this.name} a réparé tous ses compartiments.`);
     }
 
+    fireMissile(amount = 1) {
+        if (this.canFireMissile()) {
+            this.missile -= amount;
+            if (this.missile < 0) {
+                this.missile = 0;
+            }
+        } else {
+            console.log("La batterie de missiles est détruite ou le stock est vide !");
+        }
+    }
+
     // ... futures méthodes spécifiques aux alliés
 }
 
 // Classe pour les vaisseaux ennemis
-class ShipEnemy extends Ship {
+export class ShipEnemy extends Ship {
     constructor(shipData) {
         super(shipData); // Appelle le constructeur de la classe parente (Ship)
-        // Pas de 'luck' ou 'fusionCell' pour les ennemis par défaut
+        this.reward = shipData.reward; // Ajout de la propriété reward
     }
 
     // ... futures méthodes spécifiques aux ennemis

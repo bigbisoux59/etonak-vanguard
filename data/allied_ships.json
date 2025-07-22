@@ -1,0 +1,106 @@
+[
+  {
+    "type": "allied",
+    "name": "Subsistance",
+    "structureHealth": 4,
+    "engineeringPower": 3,
+    "assaultPower": 2,
+    "missile": 4,
+    "initiative": 1,
+    "luck": 2,
+    "specialSkill": "TODO",
+    "combatActions": {
+        "phase1": ["missile"],
+        "phase2": ["shield", "shield"],
+        "phase3": ["fire", "fire"],
+        "phase4": ["missile"],
+        "phase5": ["shield"],
+        "phase6": ["fire", "fire"]
+    },
+    "compartments": {
+        "shieldGenerator": 1,
+        "energyBattery": 1,
+        "missileBattery": 1,
+        "soldierGarnison": 1,
+        "engine": 2
+    }
+  },
+  {
+    "type": "allied",
+    "name": "Rédemption",
+    "structureHealth": 5,
+    "engineeringPower": 2,
+    "assaultPower": 3,
+    "missile": 3,
+    "initiative": 2,
+    "luck": 1,
+    "specialSkill": "TODO",
+    "combatActions": {
+        "phase1": ["fire"],
+        "phase2": ["shield"],
+        "phase3": ["missile", "missile"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["shield"],
+        "phase6": ["fire"]
+    },
+    "compartments": {
+        "shieldGenerator": 1,
+        "energyBattery": 2,
+        "missileBattery": 1,
+        "soldierGarnison": 1,
+        "engine": 2
+    }
+  },
+  {
+    "type": "allied",
+    "name": "Ascension",
+    "structureHealth": 3,
+    "engineeringPower": 4,
+    "assaultPower": 1,
+    "missile": 5,
+    "initiative": 3,
+    "luck": 3,
+    "specialSkill": "TODO",
+    "combatActions": {
+        "phase1": ["shield", "shield"],
+        "phase2": ["fire"],
+        "phase3": ["missile"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["missile"],
+        "phase6": ["fire"]
+    },
+    "compartments": {
+        "shieldGenerator": 2,
+        "energyBattery": 1,
+        "missileBattery": 1,
+        "soldierGarnison": 1,
+        "engine": 1
+    }
+  },
+  {
+    "type": "allied",
+    "name": "Radiance",
+    "structureHealth": 4,
+    "engineeringPower": 1,
+    "assaultPower": 4,
+    "missile": 2,
+    "initiative": 4,
+    "luck": 2,
+    "specialSkill": "TODO",
+    "combatActions": {
+        "phase1": ["fire", "fire"],
+        "phase2": ["missile"],
+        "phase3": ["shield"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["missile"],
+        "phase6": ["shield"]
+    },
+    "compartments": {
+        "shieldGenerator": 1,
+        "energyBattery": 1,
+        "missileBattery": 2,
+        "soldierGarnison": 2,
+        "engine": 1
+    }
+  }
+]

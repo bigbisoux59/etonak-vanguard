@@ -1,12 +1,11 @@
-
-class EnemyLoader {
+export class EnemyLoader {
     constructor() {
         this.enemies = [];
     }
 
     async loadEnemies() {
         try {
-            const response = await fetch('data/enemies.json');
+            const response = await fetch('data/enemy_ships.json');
             if (!response.ok) {
                 throw new Error('Impossible de charger le fichier des ennemis.');
             }

@@ -1,13 +1,23 @@
-class Game {
-    constructor() {
+import { Deck } from './deck.js';
+import { ShipAllied, ShipEnemy } from './ship.js';
+import { ATTEMPT_CARDS_CONFIG } from './constants.js';
+
+export class Game {
+    constructor(enemyLoader, alliedLoader) {
         this.playerShip = null;
+        this.enemyLoader = enemyLoader;
+        this.alliedLoader = alliedLoader;
         this.attemptDeck = new Deck(ATTEMPT_CARDS_CONFIG);
         this.currentSector = 16;
         // ... autres initialisations de decks (exploration, etc.)
     }
 
     async startGame(shipName) {
-        this.playerShip = await Ship.create("allied", shipName);
+        const shipData = this.alliedLoader.getAlliedShipByName(shipName);
+        if (!shipData) {
+            throw new Error(`Vaisseau allié non trouvé : ${shipName}`);
+        }
+        this.playerShip = new ShipAllied(shipData);
         console.log(`Début de la partie avec le vaisseau ${this.playerShip.name}.`);
         this.playerShip.displayStatus();
         this.exploreSector();
@@ -31,7 +41,7 @@ class Game {
         const enemyData = this.enemyLoader.getRandomEnemy();
         if (!enemyData) return;
 
-        const enemyShip = new ShipEnemy(enemyData);
+        const enemyShip = new ShipEnemy(enemyData); 
         console.log(`Un vaisseau ennemi apparaît : ${enemyShip.name}`);
         enemyShip.displayStatus();
 
