@@ -1,0 +1,26 @@
+{
+    "type": "allied",
+    "name": "Rédemption",
+    "structureHealth": 5,
+    "engineeringPower": 2,
+    "assaultPower": 3,
+    "missile": 3,
+    "initiative": 2,
+    "luck": 1,
+    "specialSkill": "TODO",
+    "combatActions": {
+        "phase1": ["fire"],
+        "phase2": ["shield"],
+        "phase3": ["missile", "missile"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["shield"],
+        "phase6": ["fire"]
+    },
+    "compartments": {
+        "shieldGenerator": 1,
+        "energyBattery": 2,
+        "missileBattery": 1,
+        "soldierGarnison": 1,
+        "engine": 2
+    }
+}

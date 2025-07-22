@@ -1,0 +1,26 @@
+{
+    "type": "allied",
+    "name": "Radiance",
+    "structureHealth": 4,
+    "engineeringPower": 1,
+    "assaultPower": 4,
+    "missile": 2,
+    "initiative": 4,
+    "luck": 2,
+    "specialSkill": "TODO",
+    "combatActions": {
+        "phase1": ["fire", "fire"],
+        "phase2": ["missile"],
+        "phase3": ["shield"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["missile"],
+        "phase6": ["shield"]
+    },
+    "compartments": {
+        "shieldGenerator": 1,
+        "energyBattery": 1,
+        "missileBattery": 2,
+        "soldierGarnison": 2,
+        "engine": 1
+    }
+}

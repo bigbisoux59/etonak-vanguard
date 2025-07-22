@@ -1,0 +1,26 @@
+{
+    "type": "allied",
+    "name": "Ascension",
+    "structureHealth": 3,
+    "engineeringPower": 4,
+    "assaultPower": 1,
+    "missile": 5,
+    "initiative": 3,
+    "luck": 3,
+    "specialSkill": "TODO",
+    "combatActions": {
+        "phase1": ["shield", "shield"],
+        "phase2": ["fire"],
+        "phase3": ["missile"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["missile"],
+        "phase6": ["fire"]
+    },
+    "compartments": {
+        "shieldGenerator": 2,
+        "energyBattery": 1,
+        "missileBattery": 1,
+        "soldierGarnison": 1,
+        "engine": 1
+    }
+}

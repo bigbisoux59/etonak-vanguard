@@ -1,0 +1,26 @@
+{
+    "type": "allied",
+    "name": "Subsistance",
+    "structureHealth": 4,
+    "engineeringPower": 2,
+    "assaultPower": 2,
+    "missile": 5,
+    "initiative": 1,
+    "luck": 3,
+    "specialSkill": "TODO",
+    "combatActions": {
+        "phase1": ["shield","shield"],
+        "phase2": ["fire",],
+        "phase3": ["missile"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["missile"],
+        "phase6": ["fire"]
+    },
+    "compartments": {
+        "shieldGenerator": 1,
+        "energyBattery": 1,
+        "missileBattery": 1,
+        "soldierGarnison": 1,
+        "engine": 2
+    }
+}

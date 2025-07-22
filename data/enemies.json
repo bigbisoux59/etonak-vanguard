@@ -1,0 +1,52 @@
+[
+  {
+    "type": "enemy",
+    "name": "Chasseur Pirate Léger",
+    "structureHealth": 3,
+    "engineeringPower": 0,
+    "assaultPower": 0,
+    "missile": 2,
+    "initiative": 2,
+    "specialSkill": null,
+    "combatActions": {
+        "phase1": ["shield","shield"],
+        "phase2": ["fire"],
+        "phase3": ["missile"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["missile"],
+        "phase6": ["fire"]
+    },
+    "compartments": {
+        "shieldGenerator": 1,
+        "energyBattery": 1,
+        "missileBattery": 1,
+        "soldierGarnison": 1,
+        "engine": 1
+    }
+  },
+  {
+    "type": "enemy",
+    "name": "Intercepteur Pirate",
+    "structureHealth": 5,
+    "engineeringPower": 0,
+    "assaultPower": 2,
+    "missile": 1,
+    "initiative": 0,
+    "specialSkill": null,
+    "combatActions": {
+        "phase1": ["shield","shield"],
+        "phase2": ["fire"],
+        "phase3": ["missile"],
+        "phase4": ["fire", "fire"],
+        "phase5": ["missile"],
+        "phase6": ["fire"]
+    },
+    "compartments": {
+        "shieldGenerator": 1,
+        "energyBattery": 1,
+        "missileBattery": 1,
+        "soldierGarnison": 1,
+        "engine": 1
+    }
+  }
+]
